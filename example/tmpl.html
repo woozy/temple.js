@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <title>temple.js</title>
+        <script type="text/javascript" src="../lib/jquery.js"></script>
+        <script type="text/javascript" src="../lib/temple.js"></script>
+        <style>
+            td
+            {
+                border: solid 1px;
+            }
+        </style>
+
+        <script>
+        // configuration
+        // url: url to pull data (required)
+        // params: params you want to send
+        // method: get, post, put, etc. default: get
+        // callback: an optional callback function
+            var conf = {
+                uname : {
+                    url: 'index.php',
+                    params: {
+                        list: 'name'
+                    }
+                },
+                
+                nameandage : {
+                    url: 'index.php',
+                    params: {
+                        list: 'nameandage'
+                    }
+                }
+            }
+
+            $(document).ready(function() {
+
+                temple.init(conf)
+            });
+
+        </script>
+
+    </head>
+
+
+    <body>
+    
+        <hr>
+
+        <p><b> Single node example </b></p>
+        <p data-id="uname"></p>
+    
+        <hr>
+        
+        <p><b> Top container example </b></p>
+        <table>
+            <thead>
+                <tr>
+                    <td>User</td>
+                    <td>Age</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr data-id="nameandage" data-top="true">
+                    <td id="uname"></td>
+                    <td id="uage"></td>
+                </tr>
+            </tbody>
+        </table>
+        <hr>
+    </body>
+</html>
